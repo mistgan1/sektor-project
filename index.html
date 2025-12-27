@@ -14,57 +14,101 @@
       display: grid;
       place-items: center;
     }
+
     .container {
       text-align: center;
     }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 2.5rem;
     }
-    .btn {
-      display: inline-block;
+
+    .btn-wrapper {
+      margin: 1rem 0;
+    }
+
+    .fancy-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       padding: 1rem 2.5rem;
-      font-size: 1.4rem;
-      margin: 1rem;
-      background: #238636;
-      color: white;
+      font-size: 1.5rem;
       text-decoration: none;
-      border-radius: 8px;
-      border: 2px solid #2ea043;
-      transition: all 0.2s;
+      color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     }
-    .btn:hover {
-      background: #2ea043;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(46,160,67,0.4);
+
+    .fancy-btn img {
+      width:  64px;       /* ← подбери размер под свои утки */
+      height: 64px;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
     }
-    .btn.parser {
-      background: #444c56;
-      border-color: #6e7681;
+
+    .fancy-btn .active {
+      position: absolute;
+      top: 50%;
+      left: 16px;          /* чуть левее текста, подгони под себя */
+      transform: translateY(-50%);
+      opacity: 0;
+      pointer-events: none;
     }
-    .btn.parser:hover {
-      background: #6e7681;
+
+    .fancy-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+
+    .fancy-btn:hover .active {
+      opacity: 1;
+    }
+
+    .fancy-btn:hover .static {
+      opacity: 0;
+    }
+
+    /* Цвета кнопок */
+    .sektor {
+      background: #1a3c34;
+      border: 2px solid #2e7d32;
+    }
+    .sektor:hover {
+      background: #2e7d32;
+    }
+
+    .parser {
+      background: #3d2c56;
+      border: 2px solid #6a1b9a;
+    }
+    .parser:hover {
+      background: #6a1b9a;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Выбери раздел</h1>
-  <div class="btn-wrapper">
-    <a href="/sektor.html" class="fancy-btn sektor">
-      <img src="1st_frame_duck2.png" class="static">
-      <img src="duck1.gif" class="active">
-      Калькулятор
-    </a>
-  </div>
 
-  <div class="btn-wrapper">
-    <a href="/parser.html" class="fancy-btn parser">
-      <img src="1st_frame_duck2.png" class="static">
-      <img src="duck2.gif" class="active">
-      Парсер
-    </a>
-  </div>
+    <div class="btn-wrapper">
+      <a href="/sektor.html" class="fancy-btn sektor">
+        <img src="1st_frame_duck2.png" class="static" alt="">
+        <img src="duck2.gif"         class="active" alt="">
+        Калькулятор
+      </a>
+    </div>
+
+    <div class="btn-wrapper">
+      <a href="/parser.html" class="fancy-btn parser">
+        <img src="1st_frame_duck1.png" class="static" alt="">
+        <img src="duck1.gif"         class="active" alt="">
+        Парсер
+      </a>
+    </div>
   </div>
 </body>
 </html>
