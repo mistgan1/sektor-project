@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Выбор проекта</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: system-ui, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      display: grid;
+      place-items: center;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 1.4rem;
+      margin: 1rem;
+      background: #238636;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      border: 2px solid #2ea043;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #2ea043;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(46,160,67,0.4);
+    }
+    .btn.parser {
+      background: #444c56;
+      border-color: #6e7681;
+    }
+    .btn.parser:hover {
+      background: #6e7681;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Выбери раздел</h1>
+    <a href="/sektor.html" class="btn">Зайти в Сектор</a>
+    <a href="/parser.html" class="btn parser">Зайти в Парсер</a>
+  </div>
+</body>
+</html>
