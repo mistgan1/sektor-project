@@ -3,112 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Выбор проекта</title>
+  <title>sTools</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       font-family: system-ui, sans-serif;
       background: #0d1117;
       color: #e6edf3;
-      display: grid;
-      place-items: center;
-    }
-
-    .container {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 2.5rem;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin: 0 0 2.5rem 0;
+      text-align: center;
     }
 
-    .btn-wrapper {
-      margin: 1rem 0;
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
     }
 
     .fancy-btn {
+      --width: 280px;          
+      --height: 100px;         
+
+      flex: 0 0 var(--width);
+      height: var(--height);
+      min-width: 260px;        
+
       position: relative;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 1rem 2.5rem;
-      font-size: 1.5rem;
+      padding: 0 1.2rem 0 5.2rem;   
+      font-size: 1.4rem;
+      font-weight: 500;
       text-decoration: none;
       color: white;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
       transition: all 0.25s ease;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
     .fancy-btn img {
-      width:  64px;       /* ← подбери размер под свои утки */
-      height: 64px;
+      width:  72px;
+      height: 72px;
       object-fit: contain;
-      transition: opacity 0.2s ease;
+      position: absolute;
+      left: 16px;
+      transition: opacity 0.25s ease;
     }
 
     .fancy-btn .active {
-      position: absolute;
-      top: 50%;
-      left: 16px;          /* чуть левее текста, подгони под себя */
-      transform: translateY(-50%);
       opacity: 0;
-      pointer-events: none;
     }
 
     .fancy-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
     }
 
-    .fancy-btn:hover .active {
-      opacity: 1;
-    }
+    .fancy-btn:hover .active   { opacity: 1; }
+    .fancy-btn:hover .static   { opacity: 0; }
 
-    .fancy-btn:hover .static {
-      opacity: 0;
-    }
-
-    /* Цвета кнопок */
-    .sektor {
-      background: #1a3c34;
-      border: 2px solid #2e7d32;
-    }
-    .sektor:hover {
-      background: #2e7d32;
+    /* Цвета */
+    .calculator {
+      background: linear-gradient(135deg, #1e4a3a, #2e7d32);
+      border: 2px solid #4caf50;
     }
 
     .parser {
-      background: #3d2c56;
-      border: 2px solid #6a1b9a;
+      background: linear-gradient(135deg, #3d2c56, #6a1b9a);
+      border: 2px solid #9c27b0;
     }
-    .parser:hover {
-      background: #6a1b9a;
+
+    @media (max-width: 600px) {
+      .buttons {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      
+      .fancy-btn {
+        --width: 100%;
+        justify-content: center;
+        padding-left: 5.5rem;     
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Выбери раздел</h1>
+  <h1>Куда?</h1>
 
-    <div class="btn-wrapper">
-      <a href="/sektor.html" class="fancy-btn sektor">
-        <img src="1st_frame_duck2.png" class="static" alt="">
-        <img src="duck2.gif"         class="active" alt="">
-        Калькулятор
-      </a>
-    </div>
+  <div class="buttons">
+    <a href="/sektor.html" class="fancy-btn calculator">
+      <img src="1st_frame_duck2.png" class="static" alt="Калькулятор">
+      <img src="duck1.gif"         class="active"  alt="Калькулятор">
+      Калькулятор
+    </a>
 
-    <div class="btn-wrapper">
-      <a href="/parser.html" class="fancy-btn parser">
-        <img src="1st_frame_duck1.png" class="static" alt="">
-        <img src="duck1.gif"         class="active" alt="">
-        Парсер
-      </a>
-    </div>
+    <a href="/parser.html" class="fancy-btn parser">
+      <img src="1st_frame_duck2.png" class="static" alt="Парсер">
+      <img src="duck2.gif"         class="active"  alt="Парсер">
+      Парсер
+    </a>
   </div>
 </body>
 </html>
